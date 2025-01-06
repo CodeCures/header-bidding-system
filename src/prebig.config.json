@@ -1,7 +1,13 @@
 {
     "adSlots": [
-        "/19968336/prebid_native_example_1",
-        "/19968336/prebid_native_example_2"
+        [
+            "/19968336/prebid_native_example_1",
+            "div-1"
+        ],
+        [
+            "/19968336/prebid_native_example_2",
+            "div-2"
+        ]
     ],
     "adUnits": [
         {
