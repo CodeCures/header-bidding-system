@@ -45,6 +45,14 @@
                         "placementId": 13232354,
                         "allowSmallerSizes": true
                     }
+                },
+                {
+                    "bidder": "rubicon",
+                    "params": {
+                        "accountId": 7780,
+                        "siteId": 87184,
+                        "zoneId": 413290
+                    }
                 }
             ]
         },
@@ -81,6 +89,14 @@
                     "params": {
                         "placementId": 13232354,
                         "allowSmallerSizes": true
+                    }
+                },
+                {
+                    "bidder": "rubicon",
+                    "params": {
+                        "accountId": 7780,
+                        "siteId": 87184,
+                        "zoneId": 413290
                     }
                 }
             ]
