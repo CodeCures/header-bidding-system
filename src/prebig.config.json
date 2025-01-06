@@ -2,10 +2,17 @@
     "adSlots": [
         [
             "/19968336/prebid_native_example_1",
+            [
+                [
+                    360,
+                    360
+                ]
+            ],
             "div-1"
         ],
         [
             "/19968336/prebid_native_example_2",
+            "fluid",
             "div-2"
         ]
     ],
