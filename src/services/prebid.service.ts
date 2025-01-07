@@ -1,4 +1,4 @@
-import { adSlots, adUnits as defaultUnits } from "../prebig.config.json";
+import { adSlots, floors, adUnits as defaultUnits } from "../prebig.config.json";
 
 declare const pbjs: any;
 declare const googletag: any;
@@ -27,8 +27,12 @@ export class PrebidService {
         return PrebidService.instance;
     }
 
-    private debug(message: string): void {
-        console.log(`[PrebidService] ${message}`);
+    private debug(...args: any[]): void {
+        console.log('[PrebidService]', ...args);
+    }
+
+    private myBucketFunction(cpm: number): string {
+        return cpm <= 1 ? '<= 1$' : '> 1$';
     }
 
     public async init(): Promise<void> {
@@ -49,12 +53,55 @@ export class PrebidService {
         this.debug('Configuring Prebid');
         return new Promise((resolve) => {
             pbjs.que.push(() => {
-                pbjs.setConfig({ debug: true });
+                pbjs.setConfig({ debug: true, floors });
                 pbjs.addAdUnits(this.adUnits);
-                this.debug('Prebid configured');
+
+                // Analytics setup
+                pbjs.enableAnalytics({
+                    provider: 'ga',
+                    options: {
+                        sampling: 0.1,
+                        cpmDistribution: this.myBucketFunction,
+                    },
+                });
+
+                this.debug('Prebid configured with analytics');
+
+                // Set up event listeners
+                this.setupEventListeners();
+
                 resolve();
             });
         });
+    }
+
+    private setupEventListeners(): void {
+        pbjs.onEvent('addAdUnits', () => {
+            this.debug('Ad units were added to Prebid.');
+            this.debug(pbjs.adUnits);
+        });
+
+        pbjs.onEvent('bidRequested', (args: any) => {
+            this.debug('Bid requested:', args);
+        });
+
+        pbjs.onEvent('bidResponse', (bid: any) => {
+            this.debug(`Bid response from ${bid}:`, bid);
+        });
+
+        pbjs.onEvent('auctionEnd', (data: any) => {
+            this.debug('Auction ended:', data);
+        });
+
+        pbjs.onEvent('bidWon', (bid: any) => {
+            this.debug(`Bid won by ${bid.bidderCode}:`, bid);
+        });
+
+        pbjs.onEvent('noBid', (bid: any) => {
+            this.debug(`No bid received from ${bid}`);
+        });
+
+        this.debug('Event listeners set up');
     }
 
     public requestBids(): Promise<void> {
@@ -70,7 +117,6 @@ export class PrebidService {
                 });
             });
 
-            // Failsafe timeout to ensure initAdserver is called
             setTimeout(() => {
                 this.debug('Bid timeout reached');
                 this.initAdserver();
@@ -135,3 +181,5 @@ export class PrebidService {
         });
     }
 }
+
+
