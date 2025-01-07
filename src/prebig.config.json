@@ -101,5 +101,43 @@
                 }
             ]
         }
-    ]
+    ],
+    "floors": {
+        "enabled": true,
+        "data": {
+            "schema": {
+                "fields": [
+                    "mediaType",
+                    "size",
+                    "deviceType"
+                ]
+            },
+            "values": [
+                {
+                    "mediaType": "banner",
+                    "size": "360x360",
+                    "deviceType": "desktop",
+                    "floor": 1.20
+                },
+                {
+                    "mediaType": "banner",
+                    "size": "1x1",
+                    "deviceType": "desktop",
+                    "floor": 0.80
+                },
+                {
+                    "mediaType": "banner",
+                    "size": "360x360",
+                    "deviceType": "mobile",
+                    "floor": 0.90
+                },
+                {
+                    "mediaType": "banner",
+                    "size": "1x1",
+                    "deviceType": "mobile",
+                    "floor": 0.60
+                }
+            ]
+        }
+    }
 }
