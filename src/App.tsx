@@ -1,5 +1,8 @@
 import { useEffect, useRef } from "react";
 import { PrebidService } from "./services/prebid.service";
+import { Footer, Navbar } from "./components";
+import Hero from "./theme/hero";
+import { Articles, Posts } from "./theme";
 
 function App() {
   const initialized = useRef(false);
@@ -32,21 +35,24 @@ function App() {
 
     initAds();
 
-    // Cleanup function
     return () => {
       initialized.current = false;
     };
   }, []);
 
   return (
-    <div>
-      <div id="div-1">
-        <p>No response</p>
+    <>
+      <div id="div-1" className="absolute top-56 z-50">
       </div>
-      <div id="div-2">
-        <p>No response</p>
+      <div id="div-2" className="absolute top-0 z-[100] w-full">
       </div>
-    </div>
+
+      <Navbar />
+      <Hero />
+      <Posts />
+      <Articles />
+      <Footer />
+    </>
   );
 }
 
