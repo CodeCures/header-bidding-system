@@ -83,27 +83,26 @@ export function Posts() {
     <section className="grid min-h-screen place-items-center p-8">
       <Tabs value="trends" className="mx-auto max-w-7xl w-full mb-16 ">
         <div className="w-full flex mb-8 flex-col items-center">
-          <TabsHeader className="h-10 !w-12/12 md:w-[50rem] border border-white/25 bg-opacity-90">
-            <Tab value="trends">Trends</Tab>
-            <Tab value="frontend">Frontend</Tab>
-            <Tab value="backend">Backend</Tab>
-            <Tab value="cloud">Cloud</Tab>
-            <Tab value="ai">AI</Tab>
-            <Tab value="tools">Tools</Tab>
+          <TabsHeader className="h-10 !w-12/12 md:w-[50rem] border border-white/25 bg-opacity-90" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+            <Tab value="trends" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>Trends</Tab>
+            <Tab value="frontend" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>Frontend</Tab>
+            <Tab value="backend" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>Backend</Tab>
+            <Tab value="cloud" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>Cloud</Tab>
+            <Tab value="ai" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>AI</Tab>
+            <Tab value="tools" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>Tools</Tab>
           </TabsHeader>
         </div>
       </Tabs>
-      <Typography variant="h6" className="mb-2">
+      <Typography variant="h6" className="mb-2" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
         Latest Blog Posts
       </Typography>
-      <Typography variant="h1" className="mb-2">
+      <Typography variant="h1" className="mb-2" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
         Trends News
       </Typography>
       <Typography
         variant="lead"
         color="gray"
-        className="max-w-3xl mb-36 text-center text-gray-500"
-      >
+        className="max-w-3xl mb-36 text-center text-gray-500" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}      >
         Check out what&apos;s new in the web development and tech worls! Do not
         forget to subscribe to our blog and we will notify you with the latest
         news.
@@ -128,8 +127,7 @@ export function Posts() {
         variant="text"
         size="lg"
         color="gray"
-        className="flex items-center gap-2 mt-24"
-      >
+        className="flex items-center gap-2 mt-24" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}      >
         <ArrowSmallDownIcon className="h-5 w-5 font-bold text-gray-900" />
         VIEW MORE
       </Button>

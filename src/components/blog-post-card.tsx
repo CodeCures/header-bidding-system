@@ -25,8 +25,8 @@ export function BlogPostCard({
   date,
 }: BlogPostCardProps) {
   return (
-    <Card shadow={true}>
-      <CardHeader>
+    <Card shadow={true} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+      <CardHeader placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
         <img
           width={768}
           height={768}
@@ -35,8 +35,8 @@ export function BlogPostCard({
           className="h-full w-full scale-110 object-cover"
         />
       </CardHeader>
-      <CardBody className="p-6">
-        <Typography variant="small" color="blue" className="mb-2 !font-medium">
+      <CardBody className="p-6" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+        <Typography variant="small" color="blue" className="mb-2 !font-medium" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
           {tag}
         </Typography>
         <Typography
@@ -44,11 +44,10 @@ export function BlogPostCard({
           href="#"
           variant="h5"
           color="blue-gray"
-          className="mb-2 normal-case transition-colors hover:text-gray-900"
-        >
+          className="mb-2 normal-case transition-colors hover:text-gray-900" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}        >
           {title}
         </Typography>
-        <Typography className="mb-6 font-normal !text-gray-500">
+        <Typography className="mb-6 font-normal !text-gray-500" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
           {desc}
         </Typography>
         <div className="flex items-center gap-4">
@@ -56,21 +55,18 @@ export function BlogPostCard({
             size="sm"
             variant="circular"
             src={author.img}
-            alt={author.name}
-          />
+            alt={author.name} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} />
           <div>
             <Typography
               variant="small"
               color="blue-gray"
-              className="mb-0.5 !font-medium"
-            >
+              className="mb-0.5 !font-medium" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}            >
               {author.name}
             </Typography>
             <Typography
               variant="small"
               color="gray"
-              className="text-xs !text-gray-500 font-normal"
-            >
+              className="text-xs !text-gray-500 font-normal" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}            >
               {date}
             </Typography>
           </div>
